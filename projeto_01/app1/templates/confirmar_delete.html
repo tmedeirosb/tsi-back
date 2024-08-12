@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Confirmar exclusão{% endblock %}
+{% block conteudo %}
+<h1>Confirmar exclusão</h1>
+<p>Tem certeza que deseja excluir o contato {{ contato.nome }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Sim">
+    <a href="{% url 'home' %}">Não</a>
+</form>
+{% endblock %}

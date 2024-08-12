@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block conteudo %}
+
+<h1>Home</h1>
+<h2>Lista agenda</h2>
+<p>{{ resultado }}</p>
+<p>Nome: {{nome|upper}}</p>
+
+<p class="h5">Contatos:</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contato in contatos %}
+        <tr>
+            <td>{{ contato.nome }}</td>
+            <td>{{ contato.telefone }}</td>
+            <td>
+                <a href="{% url 'editar' pk=contato.id %}">Editar</a>
+                <a href="{% url 'deletar' pk=contato.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'criar' %}">Inserir contato</a>
+
+{% endblock %}
