@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1 import views
+from .api import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +31,6 @@ urlpatterns = [
     path('criar2/', views.Agenda2CreateView.as_view(), name='criar2'),
     path('editar/<int:pk>/', views.AgendaUpdateView.as_view(), name='editar'),
     path('deletar/<int:pk>/', views.AgendaDeleteView.as_view(), name='deletar'),
+    path('api/', api.urls),
+
 ]
