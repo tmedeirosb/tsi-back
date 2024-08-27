@@ -18,3 +18,4 @@ def list_tasks(request):
 def create_task(request: HttpRequest, task_in: App1SchemaIn):
     return App1SchemaOut(id=1)
 
+
